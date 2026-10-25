@@ -1,0 +1,39 @@
+@use "sass:math";
+
+$columns: 12;
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+// op mobiel is elke kolom gewoon even breed als het scherm
+[class*="col-"] {
+  width: 100%;
+  padding: 0 15px;
+}
+
+// vanaf tablet
+@media (min-width: 768px) {
+  @for $i from 1 through $columns {
+    .col-md-#{$i} {
+      width: math.percentage(math.div($i, $columns));
+    }
+  }
+}
+
+// vanaf desktop
+@media (min-width: 992px) {
+  @for $i from 1 through $columns {
+    .col-lg-#{$i} {
+      width: math.percentage(math.div($i, $columns));
+    }
+  }
+}
