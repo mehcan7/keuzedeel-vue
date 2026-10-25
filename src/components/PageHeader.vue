@@ -1,5 +1,6 @@
 <template>
   <header>
+    <!-- bovenste deel: 4 kolommen naast elkaar op desktop, 2 op tablet -->
     <div class="container">
       <div class="row top">
         <div class="col-md-6 col-lg-3">
@@ -21,8 +22,11 @@
 
     <nav>
       <div class="container">
+        <!-- de menu-knop zie je alleen op mobiel, klik zet menuOpen aan of uit -->
         <button @click="menuOpen = !menuOpen">Menu</button>
+        <!-- class open staat er alleen als menuOpen true is -->
         <ul :class="{ open: menuOpen }">
+          <!-- v-for maakt voor elk woord uit links een li -->
           <li v-for="link in links" :key="link">
             <a href="#" :class="{ active: link === 'Home' }">{{ link }}</a>
           </li>
@@ -35,6 +39,7 @@
 <script>
 export default {
   name: "PageHeader",
+  // data() zijn de gegevens van dit component
   data() {
     return {
       menuOpen: false,
@@ -44,6 +49,7 @@ export default {
 };
 </script>
 
+<!-- scoped: deze stijl geldt alleen voor dit component -->
 <style scoped>
 .top {
   align-items: center;
@@ -56,6 +62,7 @@ img {
   max-width: 100%;
 }
 
+/* display block zet small en strong onder elkaar */
 small {
   display: block;
   font-size: 12px;
@@ -81,6 +88,7 @@ button {
   font-weight: bold;
 }
 
+/* op mobiel is het menu eerst verborgen */
 ul {
   display: none;
   margin: 0;
@@ -106,6 +114,7 @@ li a.active {
   background-color: midnightblue;
 }
 
+/* tablet en groter: knop weg, menu altijd naast elkaar */
 @media (min-width: 768px) {
   button {
     display: none;

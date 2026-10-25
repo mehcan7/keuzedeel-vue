@@ -1,29 +1,34 @@
+/* Gridsysteem: de rij (row) is verdeeld in 12 stukjes.
+   col-lg-4 = 4 van de 12 stukjes = een derde van de rij */
+
+/* het vak waar de inhoud in staat, midden op de pagina */
 .container {
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
+/* flex zet de kolommen naast elkaar, wrap zet ze eronder als er geen ruimte is */
 .row {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -15px;
 }
 
-/* op mobiel is elke kolom even breed als het scherm */
+/* elke kolom is op mobiel 100% breed (dus onder elkaar) */
 [class*="col-"] {
   width: 100%;
   padding: 0 15px;
 }
 
-/* tablet */
+/* tablet: vanaf 768px */
 @media (min-width: 768px) {
   .col-md-6 {
     width: 50%;
   }
 }
 
-/* desktop */
+/* desktop: vanaf 992px */
 @media (min-width: 992px) {
   .col-lg-3 {
     width: 25%;

@@ -1,4 +1,5 @@
 <template>
+  <!-- één kaartje. title, text en image komen van WhoWeAre (props) -->
   <div class="card">
     <img :src="image" :alt="title" />
     <div class="text">
@@ -12,6 +13,7 @@
 <script>
 export default {
   name: "ServiceCard",
+  // props: gegevens die dit component van buiten krijgt
   props: ["title", "text", "image"],
 };
 </script>
@@ -22,6 +24,7 @@ export default {
   background-color: white;
 }
 
+/* object-fit cover: de foto wordt bijgesneden en niet uitgerekt */
 img {
   display: block;
   width: 100%;

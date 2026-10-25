@@ -3,6 +3,7 @@
     <div class="container">
       <h2>Featured Projects</h2>
 
+      <!-- de knoppen doen niks, alle projecten blijven zichtbaar -->
       <div class="filters">
         <button class="active">All</button>
         <button>Building</button>
@@ -12,6 +13,7 @@
       </div>
 
       <div class="row">
+        <!-- v-for maakt een vakje voor elk project uit projects -->
         <div
           v-for="project in projects"
           :key="project.title"
@@ -19,6 +21,7 @@
         >
           <div class="project">
             <img :src="project.image" :alt="project.title" />
+            <!-- deze laag is onzichtbaar en komt tevoorschijn als je er met de muis op staat -->
             <div class="overlay">
               <h3>{{ project.title }}</h3>
               <p>{{ project.text }}</p>
@@ -103,6 +106,7 @@ h2 {
   color: orange;
 }
 
+/* geen ruimte tussen de plaatjes */
 .row {
   margin: 0;
 }
@@ -111,6 +115,7 @@ h2 {
   padding: 0;
 }
 
+/* relative: de overlay (absolute) blijft binnen dit vak */
 .project {
   position: relative;
 }
@@ -122,6 +127,7 @@ img {
   object-fit: cover;
 }
 
+/* de overlay ligt precies over het plaatje heen, opacity 0 = onzichtbaar */
 .overlay {
   position: absolute;
   top: 0;
@@ -135,6 +141,7 @@ img {
   transition: opacity 0.3s;
 }
 
+/* hover-effect: muis op het project, dan wordt de overlay zichtbaar */
 .project:hover .overlay {
   opacity: 0.9;
 }

@@ -1,5 +1,6 @@
 <template>
   <section>
+    <!-- bovenste balk met titel, tekst en knop -->
     <div class="intro">
       <div class="container">
         <div class="row">
@@ -19,14 +20,17 @@
       </div>
     </div>
 
+    <!-- de 3 kaartjes: 1 onder elkaar op mobiel, 2 op tablet, 3 op desktop -->
     <div class="cards">
       <div class="container">
         <div class="row">
+          <!-- v-for herhaalt dit blok voor elk kaartje uit cards -->
           <div
             v-for="card in cards"
             :key="card.title"
             class="col-md-6 col-lg-4"
           >
+            <!-- de dubbele punt (:) geeft de waarde van de variabele door aan het kaartje -->
             <ServiceCard
               :title="card.title"
               :text="card.text"
@@ -48,6 +52,7 @@ export default {
     ServiceCard,
   },
   data() {
+    // require is nodig zodat de foto in de build komt
     return {
       cards: [
         {

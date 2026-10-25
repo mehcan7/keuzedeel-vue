@@ -18,8 +18,10 @@ export default {
 <style scoped>
 .hero {
   padding: 80px 0;
+  /* eerst een zwarte laag (50% doorzichtig), daaronder de foto. Zo blijft de witte tekst leesbaar */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../assets/hero.jpg");
+  /* cover: de foto vult het hele vak */
   background-size: cover;
   background-position: center;
   color: white;
@@ -40,6 +42,7 @@ h1 {
   margin-right: 10px;
 }
 
+/* op tablet en groter meer ruimte en een grotere kop */
 @media (min-width: 768px) {
   .hero {
     padding: 140px 0;
