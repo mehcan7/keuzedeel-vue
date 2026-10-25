@@ -1,17 +1,20 @@
 <template>
   <PageHeader />
   <HeroBanner />
+  <WhoWeAre />
 </template>
 
 <script>
 import PageHeader from "./components/PageHeader.vue";
 import HeroBanner from "./components/HeroBanner.vue";
+import WhoWeAre from "./components/WhoWeAre.vue";
 
 export default {
   name: "App",
   components: {
     PageHeader,
     HeroBanner,
+    WhoWeAre,
   },
 };
 </script>
