@@ -4,19 +4,16 @@
       <h2>Featured Projects</h2>
 
       <div class="filters">
-        <button
-          v-for="filter in filters"
-          :key="filter"
-          :class="{ active: filter === activeFilter }"
-          @click="activeFilter = filter"
-        >
-          {{ filter }}
-        </button>
+        <button class="active">All</button>
+        <button>Building</button>
+        <button>Consulting</button>
+        <button>Interior</button>
+        <button>Office</button>
       </div>
 
       <div class="row project-grid">
         <div
-          v-for="project in shownProjects"
+          v-for="project in projects"
           :key="project.title"
           class="col-12 col-md-6 col-lg-4"
         >
@@ -39,55 +36,39 @@ export default {
   name: "FeaturedProjects",
   data() {
     return {
-      activeFilter: "All",
-      filters: ["All", "Building", "Consulting", "Interior", "Office"],
       projects: [
         {
           title: "Lakeside Villa",
-          category: "Building",
           text: "A modern family home with a pool and lots of open space.",
           image: require("../assets/project1.jpg"),
         },
         {
           title: "Riverside Office Park",
-          category: "Office",
           text: "Bright office units for growing companies, close to the river.",
           image: require("../assets/project2.jpg"),
         },
         {
           title: "Harbour Apartments",
-          category: "Building",
           text: "Forty apartments with a view over the harbour.",
           image: require("../assets/project3.jpg"),
         },
         {
           title: "City Planning Advice",
-          category: "Consulting",
           text: "We helped the council plan a new neighbourhood from scratch.",
           image: require("../assets/project4.jpg"),
         },
         {
           title: "Kitchen Renovation",
-          category: "Interior",
           text: "An old kitchen turned into a warm and modern living space.",
           image: require("../assets/project5.jpg"),
         },
         {
           title: "Hillside House",
-          category: "Building",
           text: "A quiet house built into the hill with a green roof.",
           image: require("../assets/project6.jpg"),
         },
       ],
     };
-  },
-  computed: {
-    shownProjects() {
-      if (this.activeFilter === "All") return this.projects;
-      return this.projects.filter(
-        (project) => project.category === this.activeFilter
-      );
-    },
   },
 };
 </script>
