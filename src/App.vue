@@ -2,12 +2,14 @@
   <PageHeader />
   <HeroBanner />
   <WhoWeAre />
+  <FeaturedProjects />
 </template>
 
 <script>
 import PageHeader from "./components/PageHeader.vue";
 import HeroBanner from "./components/HeroBanner.vue";
 import WhoWeAre from "./components/WhoWeAre.vue";
+import FeaturedProjects from "./components/FeaturedProjects.vue";
 
 export default {
   name: "App",
@@ -15,6 +17,7 @@ export default {
     PageHeader,
     HeroBanner,
     WhoWeAre,
+    FeaturedProjects,
   },
 };
 </script>
