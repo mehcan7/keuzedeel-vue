@@ -1,7 +1,7 @@
 <template>
   <section class="hero">
     <div class="container">
-      <p class="label">Quality you can rely on</p>
+      <p>Quality you can rely on</p>
       <h1>We Turn Your Ideas Into Real Buildings</h1>
       <a href="#" class="button">Our services</a>
       <a href="#" class="button button-dark">About us</a>
@@ -15,7 +15,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .hero {
   padding: 80px 0;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -25,8 +25,7 @@ export default {
   color: white;
 }
 
-.label {
-  margin: 0 0 10px;
+p {
   font-weight: bold;
   text-transform: uppercase;
 }

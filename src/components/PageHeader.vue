@@ -1,39 +1,30 @@
 <template>
   <header>
     <div class="container">
-      <div class="row top-row">
-        <div class="col-12 col-md-6 col-lg-3">
-          <img
-            class="logo"
-            src="../assets/buildicon-logo.png"
-            alt="BuildIcon"
-          />
+      <div class="row top">
+        <div class="col-md-6 col-lg-3">
+          <img src="../assets/buildicon-logo.png" alt="BuildIcon" />
         </div>
-        <div class="col-12 col-md-6 col-lg-3 info">
-          <p class="small-text">Support and sales</p>
-          <p class="big-text">+31 20 123 4567</p>
+        <div class="col-md-6 col-lg-3">
+          <small>Support and sales</small>
+          <strong>+31 20 123 4567</strong>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 info">
-          <p class="small-text">Opening hours</p>
-          <p class="big-text">Mon-Sat: 08:00-18:00</p>
+        <div class="col-md-6 col-lg-3">
+          <small>Opening hours</small>
+          <strong>Mon-Sat: 08:00-18:00</strong>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 info">
+        <div class="col-md-6 col-lg-3">
           <a href="#" class="button button-dark">Request a quote</a>
         </div>
       </div>
     </div>
 
-    <nav class="nav-bar">
+    <nav>
       <div class="container">
-        <button class="menu-button" @click="menuOpen = !menuOpen">Menu</button>
+        <button @click="menuOpen = !menuOpen">Menu</button>
         <ul :class="{ open: menuOpen }">
           <li v-for="link in links" :key="link">
-            <a
-              href="#"
-              :class="{ active: link === activeLink }"
-              @click.prevent="chooseLink(link)"
-              >{{ link }}</a
-            >
+            <a href="#" :class="{ active: link === 'Home' }">{{ link }}</a>
           </li>
         </ul>
       </div>
@@ -47,54 +38,40 @@ export default {
   data() {
     return {
       menuOpen: false,
-      activeLink: "Home",
       links: ["Home", "About", "Services", "Projects", "News", "Contact"],
     };
-  },
-  methods: {
-    chooseLink(link) {
-      this.activeLink = link;
-      this.menuOpen = false;
-    },
   },
 };
 </script>
 
-<style lang="scss" scoped>
-.top-row {
+<style scoped>
+.top {
   align-items: center;
   padding: 20px 0;
   text-align: center;
 }
 
-.logo {
+img {
   width: 200px;
   max-width: 100%;
 }
 
-.info {
-  margin: 10px 0;
-}
-
-.small-text {
-  margin: 0;
+small {
+  display: block;
   font-size: 12px;
   text-transform: uppercase;
-  color: gray;
 }
 
-.big-text {
-  margin: 0;
-  font-weight: bold;
+strong {
+  display: block;
   color: midnightblue;
 }
 
-.nav-bar {
+nav {
   background-color: orange;
 }
 
-.menu-button {
-  display: block;
+button {
   width: 100%;
   padding: 15px;
   border: none;
@@ -102,7 +79,6 @@ export default {
   color: white;
   font-size: 16px;
   font-weight: bold;
-  cursor: pointer;
 }
 
 ul {
@@ -120,19 +96,18 @@ li a {
   display: block;
   padding: 15px 20px;
   color: white;
-  font-size: 14px;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
+}
 
-  &:hover,
-  &.active {
-    background-color: midnightblue;
-  }
+li a:hover,
+li a.active {
+  background-color: midnightblue;
 }
 
 @media (min-width: 768px) {
-  .menu-button {
+  button {
     display: none;
   }
 
@@ -142,7 +117,7 @@ li a {
 }
 
 @media (min-width: 992px) {
-  .top-row {
+  .top {
     text-align: left;
   }
 }

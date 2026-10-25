@@ -11,11 +11,11 @@
         <button>Office</button>
       </div>
 
-      <div class="row project-grid">
+      <div class="row">
         <div
           v-for="project in projects"
           :key="project.title"
-          class="col-12 col-md-6 col-lg-4"
+          class="col-md-6 col-lg-4 box"
         >
           <div class="project">
             <img :src="project.image" :alt="project.title" />
@@ -73,13 +73,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .projects {
   padding: 50px 0;
 }
 
 h2 {
-  margin: 0 0 20px;
   color: midnightblue;
   text-align: center;
   text-transform: uppercase;
@@ -88,77 +87,59 @@ h2 {
 .filters {
   margin-bottom: 30px;
   text-align: center;
-
-  button {
-    padding: 8px 15px;
-    border: none;
-    background-color: white;
-    color: gray;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-
-    &:hover,
-    &.active {
-      color: orange;
-    }
-  }
 }
 
-.project-grid {
-  margin: 0;
+.filters button {
+  padding: 8px 15px;
+  border: none;
+  background-color: white;
+  color: gray;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
-  > div {
-    padding: 0;
-  }
+.filters button.active,
+.filters button:hover {
+  color: orange;
+}
+
+.row {
+  margin: 0;
+}
+
+.box {
+  padding: 0;
 }
 
 .project {
   position: relative;
-  overflow: hidden;
+}
 
-  img {
-    display: block;
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-  }
+img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
 }
 
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 25px;
+  padding: 30px;
   background-color: midnightblue;
   color: white;
   opacity: 0;
   transition: opacity 0.3s;
-
-  h3 {
-    margin: 0 0 10px;
-  }
-
-  p {
-    margin: 0 0 15px;
-    line-height: 1.5;
-  }
-
-  a {
-    color: orange;
-    font-weight: bold;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
 }
 
 .project:hover .overlay {
   opacity: 0.9;
+}
+
+.overlay a {
+  color: orange;
 }
 </style>

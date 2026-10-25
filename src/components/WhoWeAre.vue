@@ -1,18 +1,20 @@
 <template>
   <section>
-    <div class="container intro">
-      <div class="row">
-        <div class="col-12 col-lg-4">
-          <h2>We Are BuildIcon</h2>
-        </div>
-        <div class="col-12 col-lg-5">
-          <p>
-            Great ideas deserve great builders. We have been turning plans into
-            award-winning projects for years.
-          </p>
-        </div>
-        <div class="col-12 col-lg-3">
-          <a href="#" class="button">Request a quote</a>
+    <div class="intro">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <h2>We Are BuildIcon</h2>
+          </div>
+          <div class="col-lg-5">
+            <p>
+              Great ideas deserve great builders. We have been turning plans
+              into award-winning projects for years.
+            </p>
+          </div>
+          <div class="col-lg-3">
+            <a href="#" class="button">Request a quote</a>
+          </div>
         </div>
       </div>
     </div>
@@ -23,7 +25,7 @@
           <div
             v-for="card in cards"
             :key="card.title"
-            class="col-12 col-md-6 col-lg-4"
+            class="col-md-6 col-lg-4"
           >
             <ServiceCard
               :title="card.title"
@@ -69,22 +71,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .intro {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 40px 0;
 }
 
 h2 {
-  margin: 0 0 10px;
   color: orange;
   font-size: 32px;
 }
 
 p {
-  margin: 0 0 20px;
   font-weight: bold;
-  line-height: 1.6;
 }
 
 .cards {

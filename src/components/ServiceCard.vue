@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <img :src="image" :alt="title" />
-    <div class="card-text">
+    <div class="text">
       <h3>{{ title }}</h3>
       <p>{{ text }}</p>
       <a href="#" class="button">Learn more</a>
@@ -12,15 +12,11 @@
 <script>
 export default {
   name: "ServiceCard",
-  props: {
-    title: String,
-    text: String,
-    image: String,
-  },
+  props: ["title", "text", "image"],
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .card {
   margin-bottom: 30px;
   background-color: white;
@@ -33,18 +29,12 @@ img {
   object-fit: cover;
 }
 
-.card-text {
+.text {
   padding: 25px;
 }
 
 h3 {
-  margin: 0 0 15px;
   color: midnightblue;
   text-transform: uppercase;
-}
-
-p {
-  margin: 0 0 20px;
-  line-height: 1.6;
 }
 </style>
