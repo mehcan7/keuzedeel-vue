@@ -1,10 +1,10 @@
 <template>
   <header>
-    <!-- bovenste deel. Bootstrap grid: 2 kolommen op tablet (col-md-6), 4 op desktop (col-lg-3) -->
+    <!-- bovenste deel. Bootstrap grid: col-md-6 = 2 kolommen op tablet, col-lg-3 = 4 kolommen op desktop -->
     <div class="container py-3">
       <div class="row align-items-center text-center text-lg-start">
         <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
-          <img src="../assets/buildicon-logo.png" alt="BuildIcon" />
+          <img class="logo" src="/images/buildicon-logo.png" alt="BuildIcon" />
         </div>
         <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
           <small class="d-block text-uppercase text-secondary">
@@ -26,26 +26,26 @@
       </div>
     </div>
 
-    <!-- Bootstrap menu: op mobiel een knop (navbar-toggler) die het menu laat openklappen -->
+    <!-- menu van Bootstrap. Op mobiel is er een knop (navbar-toggler) die het menu open en dicht klapt -->
     <nav class="navbar navbar-expand-md navbar-dark bg-warning">
       <div class="container">
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#menu"
+          data-bs-target="#main-menu"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div id="menu" class="collapse navbar-collapse">
+        <div id="main-menu" class="collapse navbar-collapse">
           <ul class="navbar-nav">
-            <!-- v-for maakt voor elk woord uit links een menu-item -->
-            <li v-for="link in links" :key="link" class="nav-item">
+            <!-- v-for maakt een menu-item voor elk woord uit menuItems -->
+            <li v-for="menuItem in menuItems" :key="menuItem" class="nav-item">
               <a
                 href="#"
                 class="nav-link text-white fw-bold text-uppercase px-3"
-                :class="{ active: link === 'Home' }"
-                >{{ link }}</a
+                :class="{ active: menuItem === 'Home' }"
+                >{{ menuItem }}</a
               >
             </li>
           </ul>
@@ -57,11 +57,10 @@
 
 <script>
 export default {
-  name: "PageHeader",
   // data() zijn de gegevens van dit component
   data() {
     return {
-      links: ["Home", "About", "Services", "Projects", "News", "Contact"],
+      menuItems: ["Home", "About", "Services", "Projects", "News", "Contact"],
     };
   },
 };
@@ -69,9 +68,8 @@ export default {
 
 <!-- scoped: deze stijl geldt alleen voor dit component -->
 <style scoped>
-img {
+.logo {
   width: 200px;
-  max-width: 100%;
 }
 
 strong {

@@ -24,17 +24,17 @@
     <div class="bg-light py-5">
       <div class="container">
         <div class="row g-4">
-          <!-- v-for herhaalt dit blok voor elk kaartje uit cards -->
+          <!-- v-for maakt een kolom voor elk kaartje uit serviceCards -->
           <div
-            v-for="card in cards"
-            :key="card.title"
+            v-for="serviceCard in serviceCards"
+            :key="serviceCard.title"
             class="col-md-6 col-lg-4"
           >
             <!-- de dubbele punt (:) geeft de waarde van de variabele door aan het kaartje -->
             <ServiceCard
-              :title="card.title"
-              :text="card.text"
-              :image="card.image"
+              :title="serviceCard.title"
+              :description="serviceCard.description"
+              :image="serviceCard.image"
             />
           </div>
         </div>
@@ -47,28 +47,29 @@
 import ServiceCard from "./ServiceCard.vue";
 
 export default {
-  name: "WhoWeAre",
   components: {
     ServiceCard,
   },
   data() {
-    // require is nodig zodat de foto in de build komt
     return {
-      cards: [
+      serviceCards: [
         {
           title: "Construction",
-          text: "We handle every kind of building work. Our certified crew delivers on time and to a high standard.",
-          image: require("../assets/service1.jpg"),
+          description:
+            "We handle every kind of building work. Our certified crew delivers on time and to a high standard.",
+          image: "/images/service1.jpg",
         },
         {
           title: "About us",
-          text: "BuildIcon puts the client first. We stick to our deadlines and never cut corners on quality.",
-          image: require("../assets/service2.jpg"),
+          description:
+            "BuildIcon puts the client first. We stick to our deadlines and never cut corners on quality.",
+          image: "/images/service2.jpg",
         },
         {
           title: "Teamwork",
-          text: "Our people work closely together to find the best solution for every project.",
-          image: require("../assets/service3.jpg"),
+          description:
+            "Our people work closely together to find the best solution for every project.",
+          image: "/images/service3.jpg",
         },
       ],
     };

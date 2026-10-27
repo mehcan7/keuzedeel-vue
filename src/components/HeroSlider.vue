@@ -1,8 +1,8 @@
 <template>
-  <!-- Bootstrap slider (carousel). De pijltjes werken door data-bs-slide -->
-  <div id="heroSlider" class="carousel slide">
+  <!-- slider van Bootstrap. De pijltjes werken met data-bs-slide -->
+  <div id="hero-slider" class="carousel slide">
     <div class="carousel-inner">
-      <!-- v-for maakt een slide voor elke foto uit slides. Alleen de eerste krijgt "active" -->
+      <!-- v-for maakt een slide voor elk item uit slides. Alleen de eerste is active (zichtbaar) -->
       <div
         v-for="(slide, index) in slides"
         :key="slide.title"
@@ -10,10 +10,10 @@
         :class="{ active: index === 0 }"
       >
         <img :src="slide.image" :alt="slide.title" class="d-block w-100" />
-        <!-- de tekst ligt over de foto heen -->
-        <div class="slide-text text-white">
+        <!-- de tekst staat over de foto heen -->
+        <div class="slide-content text-white">
           <div class="container">
-            <p class="fw-bold text-uppercase">{{ slide.label }}</p>
+            <p class="fw-bold text-uppercase">{{ slide.subtitle }}</p>
             <h1 class="display-4 mb-4">{{ slide.title }}</h1>
             <a
               href="#"
@@ -29,48 +29,45 @@
       </div>
     </div>
 
-    <!-- de pijltjes: terug en verder -->
+    <!-- de pijltjes: vorige en volgende -->
     <button
       class="carousel-control-prev"
       type="button"
-      data-bs-target="#heroSlider"
+      data-bs-target="#hero-slider"
       data-bs-slide="prev"
     >
       <span class="carousel-control-prev-icon"></span>
-      <span class="visually-hidden">Previous</span>
     </button>
     <button
       class="carousel-control-next"
       type="button"
-      data-bs-target="#heroSlider"
+      data-bs-target="#hero-slider"
       data-bs-slide="next"
     >
       <span class="carousel-control-next-icon"></span>
-      <span class="visually-hidden">Next</span>
     </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HeroBanner",
   data() {
     return {
       slides: [
         {
-          label: "Quality you can rely on",
+          subtitle: "Quality you can rely on",
           title: "We Turn Your Ideas Into Real Buildings",
-          image: require("../assets/hero.jpg"),
+          image: "/images/hero1.jpg",
         },
         {
-          label: "Built to last",
+          subtitle: "Built to last",
           title: "Strong Foundations For Every Project",
-          image: require("../assets/hero2.jpg"),
+          image: "/images/hero2.jpg",
         },
         {
-          label: "Your project, our team",
+          subtitle: "Your project, our team",
           title: "From First Sketch To Final Key",
-          image: require("../assets/hero3.jpg"),
+          image: "/images/hero3.jpg",
         },
       ],
     };
@@ -79,7 +76,7 @@ export default {
 </script>
 
 <style scoped>
-/* cover: de foto vult het hele vak. brightness: de foto wordt donkerder, zo blijft de witte tekst leesbaar */
+/* object-fit cover: de foto wordt bijgesneden en niet uitgerekt. brightness: de foto wordt donkerder, zo kan je de witte tekst lezen */
 img {
   height: 450px;
   object-fit: cover;
@@ -87,7 +84,7 @@ img {
 }
 
 /* de tekst staat in het midden van de slide */
-.slide-text {
+.slide-content {
   position: absolute;
   top: 50%;
   width: 100%;
@@ -95,13 +92,9 @@ img {
 }
 
 /* ruimte links en rechts, zodat de tekst niet onder de pijltjes staat */
-.slide-text .container {
+.slide-content .container {
   padding-left: 70px;
   padding-right: 70px;
-}
-
-h1 {
-  max-width: 600px;
 }
 
 /* de pijltjes als vierkantje, zoals in het ontwerp */

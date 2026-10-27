@@ -6,12 +6,12 @@
       <!-- de knoppen doen niks, alle projecten blijven zichtbaar -->
       <div class="text-center mb-4">
         <button
-          v-for="filter in filters"
-          :key="filter"
+          v-for="category in categories"
+          :key="category"
           class="btn btn-link fw-bold text-uppercase text-decoration-none"
-          :class="filter === 'All' ? 'text-warning' : 'text-secondary'"
+          :class="category === 'All' ? 'text-warning' : 'text-secondary'"
         >
-          {{ filter }}
+          {{ category }}
         </button>
       </div>
 
@@ -23,14 +23,12 @@
           :key="project.title"
           class="col-md-6 col-lg-4"
         >
-          <div class="project position-relative">
-            <img :src="project.image" :alt="project.title" class="w-100" />
+          <div class="project-box">
+            <img :src="project.image" :alt="project.title" />
             <!-- deze laag is onzichtbaar en komt tevoorschijn als je er met de muis op staat -->
-            <div
-              class="overlay position-absolute top-0 start-0 w-100 h-100 p-4 bg-dark text-white"
-            >
+            <div class="hover-info">
               <h3 class="h5">{{ project.title }}</h3>
-              <p>{{ project.text }}</p>
+              <p>{{ project.description }}</p>
               <a
                 href="#"
                 class="text-warning fw-bold text-uppercase text-decoration-none"
@@ -46,40 +44,43 @@
 
 <script>
 export default {
-  name: "FeaturedProjects",
   data() {
     return {
-      filters: ["All", "Building", "Consulting", "Interior", "Office"],
+      categories: ["All", "Building", "Consulting", "Interior", "Office"],
       projects: [
         {
           title: "Lakeside Villa",
-          text: "A modern family home with a pool and lots of open space.",
-          image: require("../assets/project1.jpg"),
+          description:
+            "A modern family home with a pool and lots of open space.",
+          image: "/images/project1.jpg",
         },
         {
           title: "Riverside Office Park",
-          text: "Bright office units for growing companies, close to the river.",
-          image: require("../assets/project2.jpg"),
+          description:
+            "Bright office units for growing companies, close to the river.",
+          image: "/images/project2.jpg",
         },
         {
           title: "Harbour Apartments",
-          text: "Forty apartments with a view over the harbour.",
-          image: require("../assets/project3.jpg"),
+          description: "Forty apartments with a view over the harbour.",
+          image: "/images/project3.jpg",
         },
         {
           title: "City Planning Advice",
-          text: "We helped the council plan a new neighbourhood from scratch.",
-          image: require("../assets/project4.jpg"),
+          description:
+            "We helped the council plan a new neighbourhood from scratch.",
+          image: "/images/project4.jpg",
         },
         {
           title: "Kitchen Renovation",
-          text: "An old kitchen turned into a warm and modern living space.",
-          image: require("../assets/project5.jpg"),
+          description:
+            "An old kitchen turned into a warm and modern living space.",
+          image: "/images/project5.jpg",
         },
         {
           title: "Hillside House",
-          text: "A quiet house built into the hill with a green roof.",
-          image: require("../assets/project6.jpg"),
+          description: "A quiet house built into the hill with a green roof.",
+          image: "/images/project6.jpg",
         },
       ],
     };
@@ -88,20 +89,34 @@ export default {
 </script>
 
 <style scoped>
+/* relative: de laag met de tekst (absolute) blijft binnen dit vak */
+.project-box {
+  position: relative;
+}
+
 img {
   display: block;
+  width: 100%;
   height: 280px;
   object-fit: cover;
 }
 
-/* de overlay ligt precies over het plaatje heen, opacity 0 = onzichtbaar */
-.overlay {
+/* de laag ligt precies over het plaatje heen. opacity 0 = onzichtbaar */
+.hover-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  background-color: midnightblue;
+  color: white;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-/* hover-effect: muis op het project, dan wordt de overlay zichtbaar */
-.project:hover .overlay {
+/* hover-effect: muis op het project, dan wordt de laag zichtbaar */
+.project-box:hover .hover-info {
   opacity: 0.9;
 }
 </style>
