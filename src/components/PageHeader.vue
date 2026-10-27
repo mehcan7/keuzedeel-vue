@@ -78,6 +78,11 @@ strong {
   color: midnightblue;
 }
 
+/* witte rand om de menu-knop, zodat je hem ziet op het gele balkje */
+.navbar-toggler {
+  border-color: white;
+}
+
 .nav-link:hover,
 .nav-link.active {
   background-color: midnightblue;
