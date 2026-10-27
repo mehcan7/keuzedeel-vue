@@ -23,34 +23,3 @@ export default {
   },
 };
 </script>
-
-<!-- deze stijl geldt voor de hele site (niet scoped) -->
-<style>
-/* padding en border tellen mee in de breedte, dat rekent makkelijker */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: dimgray;
-}
-
-/* de oranje knop, gebruikt in de header, hero en kaartjes */
-.button {
-  display: inline-block;
-  padding: 12px 25px;
-  background-color: orange;
-  color: white;
-  font-size: 13px;
-  font-weight: bold;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-/* zet je erbij als je de knop donker wilt: class="button button-dark" */
-.button-dark {
-  background-color: midnightblue;
-}
-</style>

@@ -1,29 +1,29 @@
 <template>
   <section>
     <!-- bovenste balk met titel, tekst en knop -->
-    <div class="intro">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <h2>We Are BuildIcon</h2>
-          </div>
-          <div class="col-lg-5">
-            <p>
-              Great ideas deserve great builders. We have been turning plans
-              into award-winning projects for years.
-            </p>
-          </div>
-          <div class="col-lg-3">
-            <a href="#" class="button">Request a quote</a>
-          </div>
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <h2 class="text-warning fw-bold">We Are BuildIcon</h2>
+        </div>
+        <div class="col-lg-5">
+          <p class="fw-bold">
+            Great ideas deserve great builders. We have been turning plans into
+            award-winning projects for years.
+          </p>
+        </div>
+        <div class="col-lg-3">
+          <a href="#" class="btn btn-warning text-white fw-bold text-uppercase">
+            Request a quote
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- de 3 kaartjes: 1 onder elkaar op mobiel, 2 op tablet, 3 op desktop -->
-    <div class="cards">
+    <!-- de 3 kaartjes: 1 onder elkaar op mobiel, 2 op tablet, 3 op desktop. g-4 = ruimte ertussen -->
+    <div class="bg-light py-5">
       <div class="container">
-        <div class="row">
+        <div class="row g-4">
           <!-- v-for herhaalt dit blok voor elk kaartje uit cards -->
           <div
             v-for="card in cards"
@@ -75,23 +75,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.intro {
-  padding: 40px 0;
-}
-
-h2 {
-  color: orange;
-  font-size: 32px;
-}
-
-p {
-  font-weight: bold;
-}
-
-.cards {
-  padding: 50px 0 20px;
-  background-color: whitesmoke;
-}
-</style>

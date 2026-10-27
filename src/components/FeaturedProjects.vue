@@ -1,31 +1,41 @@
 <template>
-  <section class="projects">
+  <section class="py-5">
     <div class="container">
-      <h2>Featured Projects</h2>
+      <h2 class="text-center text-uppercase fw-bold mb-3">Featured Projects</h2>
 
       <!-- de knoppen doen niks, alle projecten blijven zichtbaar -->
-      <div class="filters">
-        <button class="active">All</button>
-        <button>Building</button>
-        <button>Consulting</button>
-        <button>Interior</button>
-        <button>Office</button>
+      <div class="text-center mb-4">
+        <button
+          v-for="filter in filters"
+          :key="filter"
+          class="btn btn-link fw-bold text-uppercase text-decoration-none"
+          :class="filter === 'All' ? 'text-warning' : 'text-secondary'"
+        >
+          {{ filter }}
+        </button>
       </div>
 
-      <div class="row">
+      <!-- g-0 = geen ruimte tussen de plaatjes -->
+      <div class="row g-0">
         <!-- v-for maakt een vakje voor elk project uit projects -->
         <div
           v-for="project in projects"
           :key="project.title"
-          class="col-md-6 col-lg-4 box"
+          class="col-md-6 col-lg-4"
         >
-          <div class="project">
-            <img :src="project.image" :alt="project.title" />
+          <div class="project position-relative">
+            <img :src="project.image" :alt="project.title" class="w-100" />
             <!-- deze laag is onzichtbaar en komt tevoorschijn als je er met de muis op staat -->
-            <div class="overlay">
-              <h3>{{ project.title }}</h3>
+            <div
+              class="overlay position-absolute top-0 start-0 w-100 h-100 p-4 bg-dark text-white"
+            >
+              <h3 class="h5">{{ project.title }}</h3>
               <p>{{ project.text }}</p>
-              <a href="#">Learn more</a>
+              <a
+                href="#"
+                class="text-warning fw-bold text-uppercase text-decoration-none"
+                >Learn more</a
+              >
             </div>
           </div>
         </div>
@@ -39,6 +49,7 @@ export default {
   name: "FeaturedProjects",
   data() {
     return {
+      filters: ["All", "Building", "Consulting", "Interior", "Office"],
       projects: [
         {
           title: "Lakeside Villa",
@@ -77,66 +88,14 @@ export default {
 </script>
 
 <style scoped>
-.projects {
-  padding: 50px 0;
-}
-
-h2 {
-  color: midnightblue;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.filters {
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.filters button {
-  padding: 8px 15px;
-  border: none;
-  background-color: white;
-  color: gray;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.filters button.active,
-.filters button:hover {
-  color: orange;
-}
-
-/* geen ruimte tussen de plaatjes */
-.row {
-  margin: 0;
-}
-
-.box {
-  padding: 0;
-}
-
-/* relative: de overlay (absolute) blijft binnen dit vak */
-.project {
-  position: relative;
-}
-
 img {
   display: block;
-  width: 100%;
   height: 280px;
   object-fit: cover;
 }
 
 /* de overlay ligt precies over het plaatje heen, opacity 0 = onzichtbaar */
 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 30px;
-  background-color: midnightblue;
-  color: white;
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -144,9 +103,5 @@ img {
 /* hover-effect: muis op het project, dan wordt de overlay zichtbaar */
 .project:hover .overlay {
   opacity: 0.9;
-}
-
-.overlay a {
-  color: orange;
 }
 </style>

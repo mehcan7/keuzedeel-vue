@@ -1,10 +1,15 @@
 <template>
-  <section class="hero">
+  <section class="hero text-white">
     <div class="container">
-      <p>Quality you can rely on</p>
-      <h1>We Turn Your Ideas Into Real Buildings</h1>
-      <a href="#" class="button">Our services</a>
-      <a href="#" class="button button-dark">About us</a>
+      <p class="fw-bold text-uppercase">Quality you can rely on</p>
+      <h1 class="display-4 mb-4">We Turn Your Ideas Into Real Buildings</h1>
+      <a
+        href="#"
+        class="btn btn-warning text-white fw-bold text-uppercase me-2"
+      >
+        Our services
+      </a>
+      <a href="#" class="btn btn-dark fw-bold text-uppercase">About us</a>
     </div>
   </section>
 </template>
@@ -24,32 +29,16 @@ export default {
   /* cover: de foto vult het hele vak */
   background-size: cover;
   background-position: center;
-  color: white;
-}
-
-p {
-  font-weight: bold;
-  text-transform: uppercase;
 }
 
 h1 {
-  max-width: 500px;
-  margin: 0 0 30px;
-  font-size: 32px;
+  max-width: 600px;
 }
 
-.button {
-  margin-right: 10px;
-}
-
-/* op tablet en groter meer ruimte en een grotere kop */
+/* op tablet en groter meer ruimte */
 @media (min-width: 768px) {
   .hero {
     padding: 140px 0;
-  }
-
-  h1 {
-    font-size: 48px;
   }
 }
 </style>
